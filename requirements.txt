@@ -1,0 +1,3 @@
+django-cms>=3.2
+django-filer>=1.2.4
+easy-thumbnails>=2.3
