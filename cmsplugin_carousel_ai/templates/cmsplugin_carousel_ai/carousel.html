@@ -1,0 +1,22 @@
+{% load cms_tags thumbnail %}
+
+{# Just a reference mock template for getting started #}
+<div id="frontpage-carousel-{{ carousel.id }}"
+     data-interval="{{ carousel.interval }}">
+    <div class="carousel-inner">
+        {% for slide in slides %}
+            {% if slide.has_link %}
+                <a href="{{ slide.link }}">
+            {% endif %}
+            <div class="item{% if forloop.first %} active{% endif %}"
+                 style="background-image: url({% thumbnail slide.image 1920x600 crop upscale %});">
+                {% if slide.caption %}
+                    <div class="carousel-caption">{{ slide.caption }}</div>
+                {% endif %}
+            </div>
+            {% if slide.has_link %}
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
