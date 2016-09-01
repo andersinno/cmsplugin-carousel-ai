@@ -3,7 +3,6 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from cms.models import CMSPlugin, Page, force_text
-from easy_thumbnails.files import get_thumbnailer
 from filer.fields.image import FilerImageField
 
 
@@ -26,7 +25,7 @@ class Carousel(CMSPlugin):
     def copy_relations(self, oldinstance):
         """
         Make a copy of the related slides for the new carousel object.
-        See docs: http://docs.django-cms.org/en/release-3.3.x/how_to/custom_plugins.html#for-foreign-key-relations-from-other-objects
+        See docs: http://docs.django-cms.org/en/release-3.3.x/how_to/custom_plugins.html#for-foreign-key-relations-from-other-objects  # NOQA
         """
         for slide in oldinstance.slides.all():
             slide.pk = None

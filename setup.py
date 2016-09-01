@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import subprocess
 from distutils.core import setup
 
 
