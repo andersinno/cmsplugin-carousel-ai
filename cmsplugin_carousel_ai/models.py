@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
+from cms.models import CMSPlugin, force_text, Page
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-
-from cms.models import CMSPlugin, Page, force_text
 from filer.fields.image import FilerImageField
 
 
