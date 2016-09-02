@@ -21,6 +21,14 @@ class Carousel(CMSPlugin):
     def __str__(self):
         return "%s" % self.name
 
+    @property
+    def interval_in_ms(self):
+        """
+        The slide change interval in milliseconds
+        :rtype: int
+        """
+        return int(self.interval * 1000)
+
     def copy_relations(self, oldinstance):
         """
         Make a copy of the related slides for the new carousel object.
@@ -50,7 +58,7 @@ class Slide(models.Model):
         blank=True,
     )
     url = models.URLField(
-        verbose_name="link to URL",
+        verbose_name=_("link to URL"),
         max_length=250,
         blank=True,
     )
@@ -61,6 +69,11 @@ class Slide(models.Model):
         blank=True,
         help_text=_("Page link overrides given URL."),
         limit_choices_to={"publisher_is_draft": False},
+    )
+    call_to_action_label = models.CharField(
+        verbose_name=_("call to action label"),
+        max_length=250,
+        blank=True
     )
     ordering = models.IntegerField(
         verbose_name=_("ordering"),
@@ -85,3 +98,11 @@ class Slide(models.Model):
     @property
     def has_link(self):
         return bool(self.linked_page_id or self.url)
+
+    @property
+    def has_call_to_action(self):
+        """
+        States whether the slide has the required information for a Call To Action.
+        :rtype: bool
+        """
+        return bool(self.call_to_action_label and self.has_link)
