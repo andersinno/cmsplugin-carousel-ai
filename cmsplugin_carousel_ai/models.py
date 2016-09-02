@@ -58,7 +58,7 @@ class Slide(models.Model):
         blank=True,
     )
     url = models.URLField(
-        verbose_name="link to URL",
+        verbose_name=_("link to URL"),
         max_length=250,
         blank=True,
     )
