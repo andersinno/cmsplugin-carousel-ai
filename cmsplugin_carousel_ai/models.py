@@ -70,6 +70,11 @@ class Slide(models.Model):
         help_text=_("Page link overrides given URL."),
         limit_choices_to={"publisher_is_draft": False},
     )
+    call_to_action_label = models.CharField(
+        verbose_name=_("call to action label"),
+        max_length=250,
+        blank=True
+    )
     ordering = models.IntegerField(
         verbose_name=_("ordering"),
         default=0,
@@ -93,3 +98,11 @@ class Slide(models.Model):
     @property
     def has_link(self):
         return bool(self.linked_page_id or self.url)
+
+    @property
+    def has_call_to_action(self):
+        """
+        States whether the slide has the required information for a Call To Action.
+        :rtype: bool
+        """
+        return bool(self.call_to_action_label and self.has_link)
