@@ -21,6 +21,14 @@ class Carousel(CMSPlugin):
     def __str__(self):
         return "%s" % self.name
 
+    @property
+    def interval_in_ms(self):
+        """
+        The slide change interval in milliseconds
+        :rtype: int
+        """
+        return int(self.interval * 1000)
+
     def copy_relations(self, oldinstance):
         """
         Make a copy of the related slides for the new carousel object.
