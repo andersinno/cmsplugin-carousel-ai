@@ -9,7 +9,6 @@ setup(
     packages=['cmsplugin_carousel_ai', 'cmsplugin_carousel_ai.migrations', 'cmsplugin_carousel_ai.templates'],
     include_package_data=True,
     license='MIT',
-    long_description=open('README.md').read(),
     description='Image carousel plugin for Django CMS',
     install_requires=[
         'django-cms>=3.2,<3.4',

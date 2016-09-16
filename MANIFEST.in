@@ -1,4 +1,1 @@
-include README.md
-recursive-include cmsplugin_carousel_ai *.*
-recursive-exclude cmsplugin_carousel_ai ._*
-recursive-exclude cmsplugin_carousel_ai .DS_Store
+recursive-include cmsplugin_carousel_ai *.html
