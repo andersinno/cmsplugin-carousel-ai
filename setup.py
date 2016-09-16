@@ -13,6 +13,7 @@ setup(
     description='Image carousel plugin for Django CMS',
     install_requires=[
         'django-cms>=3.2,<3.4',
+        'django-enumfields>=0.8.2',
         'django-filer>=1.2.4',
         'easy-thumbnails>=2.3',
     ],
