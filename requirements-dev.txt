@@ -2,3 +2,6 @@ autoflake
 autopep8
 flake8
 isort
+pytest-cov
+pytest-django
+pytest>=3.0
