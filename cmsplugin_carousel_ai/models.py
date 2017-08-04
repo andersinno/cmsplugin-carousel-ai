@@ -57,6 +57,11 @@ class Slide(models.Model):
         max_length=160,
         blank=True,
     )
+    description = models.CharField(
+        verbose_name=_("slide description"),
+        max_length=380,
+        blank=True,
+    )
     url = models.URLField(
         verbose_name=_("link to URL"),
         max_length=250,
@@ -86,7 +91,7 @@ class Slide(models.Model):
         ordering = ("ordering",)
 
     def __str__(self):
-        return force_text(self.caption or self.image.label)
+        return force_text(self.caption or self.image.label or self.description)
 
     @property
     def link(self):

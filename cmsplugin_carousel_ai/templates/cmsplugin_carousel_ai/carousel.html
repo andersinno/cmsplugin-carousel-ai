@@ -14,6 +14,9 @@
             {% if slide.caption %}
                 <div class="carousel-caption">{{ slide.caption }}</div>
             {% endif %}
+            {% if slide.description %}
+                <p class="carousel-description">{{ slide.description }}</p>
+            {% endif %}
             {% if slide.has_call_to_action %}
                 <a href="{{ slide.link }}" class="button">{{ slide.call_to_action_label }}</a>
             {% endif %}
